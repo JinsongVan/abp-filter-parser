@@ -410,6 +410,11 @@ function matchOptions(parsedFilterData, input, contextParams = {}) {
  * Given an individual parsed filter data determines if the input url should block.
  */
 export function matchesFilter(parsedFilterData, input, contextParams = {}, cachedInputData = {}) {
+  // If parsedFilterData is htmlRuleFilter, return early.
+  if (parsedFilterData.htmlRuleSelector) {
+    return false;
+  }
+
   if (!matchOptions(parsedFilterData, input, contextParams)) {
     return false;
   }
