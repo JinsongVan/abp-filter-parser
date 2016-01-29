@@ -349,7 +349,7 @@ function isThirdPartyHost(baseContextHost, testHost) {
 }
 
 // Determines if there's a match based on the options, this doesn't
-// mean that the filter rule shoudl be accepted, just that the filter rule
+// mean that the filter rule should be accepted, just that the filter rule
 // should be considered given the current context.
 // By specifying context params, you can filter out the number of rules which are
 // considered.
@@ -373,7 +373,7 @@ function matchOptions(parsedFilterData, input, contextParams = {}) {
 
       let shouldSkipDomains = parsedFilterData.options.skipDomains.filter((domain) =>
         !isThirdPartyHost(domain, contextParams.domain));
-      // Handle cases like: example.com|~foo.example.com should llow for foo.example.com
+      // Handle cases like: example.com|~foo.example.com should allow for foo.example.com
       // But ~example.com|foo.example.com should block for foo.example.com
       let leftOverBlocking = shouldBlockDomains.filter((shouldBlockDomain) =>
         shouldSkipDomains.every((shouldSkipDomain) =>
